@@ -22,10 +22,21 @@ function App() {
       .catch(error => console.error('Error:', error));
   };
 
+  const handleUpdateTodo = (id, description) => {
+    fetch(`http://localhost:8080/v1/todos/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ description })
+    }).then(fetchTodos)
+      .catch(error => console.error('Error:', error));
+  }
+
   return (
     <div className="App">
       <AddTodo onAddTodo={fetchTodos} />
-      <TodoList todos={todos} onDeleteTodo={handleDeleteTodo} />
+      <TodoList todos={todos} onDeleteTodo={handleDeleteTodo} onUpdateTodo={handleUpdateTodo}/>
     </div>
   );
 }
