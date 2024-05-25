@@ -12,7 +12,7 @@ function TodoList({ todos, onDeleteTodo }) {
         <li key={index}>
           {todo.description}
           <button style={{ color: 'red', background: 'none', border: 'none' }} onClick={() => onDeleteTodo(todo.id)}>
-            <FontAwesomeIcon icon={faTrash} />
+            <FontAwesomeIcon icon={faTrash} style={{ cursor: 'pointer' }}/>
           </button>
         </li>
       ))}
